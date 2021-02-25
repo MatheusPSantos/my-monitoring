@@ -39,5 +39,8 @@
     "type": "git",
     "url": "https://github.com/MatheusPSantos/my-monitoring"
   },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
+  },
   "license": "Apache 2.0"
 }
