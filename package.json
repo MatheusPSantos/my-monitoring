@@ -1,5 +1,5 @@
 {
-  "name": "my-package",
+  "name": "my-monitoring",
   "version": "0.0.1",
   "description": "Embedded editable monitoring dashboard for Node.js applications based in Appmetrics-dash and Appmetrics.",
   "main": "index.js",
@@ -37,7 +37,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/MatheusPSantos/appmetrics-dash"
+    "url": "https://github.com/MatheusPSantos/my-monitoring"
   },
-  "license": "MIT"
+  "license": "Apache 2.0"
 }
