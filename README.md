@@ -1,41 +1,30 @@
-# Node Application Metrics Dashboard
-
+# My-monitoring
+<!-- 
 [![Build Status](https://travis-ci.org/RuntimeTools/appmetrics-dash.svg?branch=master)](https://travis-ci.org/RuntimeTools/appmetrics-dash)
 [![codebeat badge](https://codebeat.co/badges/52b7334d-70b0-4659-9acb-b080d6413906)](https://codebeat.co/projects/github-com-runtimetools-appmetrics-dash-master)
 [![codecov.io](https://codecov.io/github/RuntimeTools/appmetrics-dash/coverage.svg?branch=master)](https://codecov.io/github/RuntimeTools/appmetrics-dash?branch=master)
 ![Apache 2](https://img.shields.io/badge/license-Apache2-blue.svg?style=flat)
 [![Homepage](https://img.shields.io/badge/homepage-Node%20Application%20Metrics-blue.svg)](https://developer.ibm.com/node/monitoring-post-mortem/application-metrics-node-js/)
 [![Module LTS Adopted'](https://img.shields.io/badge/Module%20LTS-Adopted-brightgreen.svg?style=flat)](http://github.com/CloudNativeJS/ModuleLTS)
-[![IBM Support](https://img.shields.io/badge/Support-IBM%20Runtimes-brightgreen.svg?style=flat)](http://ibm.biz/node-support)
+[![IBM Support](https://img.shields.io/badge/Support-IBM%20Runtimes-brightgreen.svg?style=flat)](http://ibm.biz/node-support) -->
 
-[Node Application Metrics Dashboard](https://developer.ibm.com/node/monitoring-post-mortem/application-metrics-node-js/) (appmetrics-dash) provides a very easy-to-use web based dashboard to show the performance metrics of your running Node.js application.
+My-monitoring is an application based in [Node Application Metrics Dashboard](https://developer.ibm.com/node/monitoring-post-mortem/application-metrics-node-js/)(appmetrics-dash). Provides a very easy-to-use web based dashboard to show the performance metrics of your running Node.js application.
 
-<img src="public/appmetrics.gif" alt="appmetrics-dash in action"/>
+<!-- <img src="public/appmetrics.gif" alt="appmetrics-dash in action"/> -->
 
+## Usage
 If you want to add the dashboard to all HTTP servers created by your application then simply add:
 
 ```js
 // Before all other 'require' statements:
-require('appmetrics-dash').attach();
+require('my-monitoring').attach();
 ```
 to the very top of your main JavaScript source file.
-
-Alternatively, to use preloading:
-
-```sh
-$ node --require appmetrics-dash/attach app.js
-```
-
-or use the NODE_OPTIONS environment variable:
-
-```sh
-$ export NODE_OPTIONS="--require appmetrics-dash/attach"
-```
 
 If you want to add the dashboard to one specific HTTP server then use:
 
 ```js
-var dash = require('appmetrics-dash');
+var dash = require('my-monitoring');
 // Other 'require' statements here
 // Create HTTP server 'myHttpServer' here
 dash.monitor({server: myHttpServer});
@@ -44,23 +33,8 @@ If you are not creating an HTTP server then use:
 
 ```js
 // Before all other 'require' statements:
-require('appmetrics-dash').monitor();
+require('my-monitoring').monitor();
 ```
-
-or run your program with
-
-```sh
-$ node --require appmetrics-dash/monitor app.js
-```
-
-or via the NODE_OPTIONS environment variable:
-
-```sh
-$ export NODE_OPTIONS="--require appmetrics-dash/monitor"
-```
-
-This creates a new server for the dashboard on port 3001 by default. The path defaults to ```/appmetrics-dash```.
-E.g. http://localhost:3001/appmetrics-dash
 
 The data available on the dashboard is as follows:
 * CPU Profiling (via a separate tab)
@@ -79,17 +53,17 @@ As well as displaying data, it also provides the ability to generate both [Node 
 
 The dashboard uses [Node Application Metrics][1] to monitor the application. 
 
-## Installation
+<!-- ## Installation
 
 ```console
 npm install appmetrics-dash
-```
+``` -->
 
 ## Performance overhead
 
 Our testing has shown that the performance overhead in terms of processing is minimal, adding less than 0.5 % to the CPU usage of your application. The additional memory required is around 30 MB to gather information about your system and application which is then visualized in the dashboard. 
-
-We gathered this information by monitoring the sample application [Acme Air][3]. We used MongoDB as our datastore and used JMeter to drive load though the program.  We have performed this testing with Node.js version 6.10.3
+<!-- 
+We gathered this information by monitoring the sample application [Acme Air][3]. We used MongoDB as our datastore and used JMeter to drive load though the program.  We have performed this testing with Node.js version 6.10.3 -->
 
 
 ## API Documentation
@@ -102,7 +76,7 @@ Auto-attach to all `http` servers created after this call, calling `dash.monitor
 
 Simple example using attach
 ```js
-var dash = require('appmetrics-dash');
+var dash = require('my-monitoring');
 dash.attach();
 
 var http = require('http');
@@ -121,6 +95,16 @@ server.listen(port, (err) => {
   }
   console.log(`Server is listening on ${port}`)
 });
+```
+
+To use options, add the object inside ```attach()```.
+```js
+  var dash = require('my-monitoring');
+  dash.attach({
+    url: '',
+    titlte: '',
+    ...
+  })
 ```
 
 ### monitor(options)
@@ -150,10 +134,10 @@ server.listen(port, (err) => {
 * options.title {String} Title for the dashboard.
 * options.docs {String} URL link to accompanying documentation.
 * options.middleware {Object} Pass in middleware function to be used by server.
-
+<!-- 
 ## Contributing
 
-We welcome contributions. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details about the contributor licence agreement and other information. If you want to do anything more involved than a bug fix or a minor enhancement then we would recommend discussing it in an issue first before doing the work to make sure that it's likely to be accepted. We're also keen to improve test coverage and may not accept new code unless there are accompanying tests.
+We welcome contributions. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details about the contributor licence agreement and other information. If you want to do anything more involved than a bug fix or a minor enhancement then we would recommend discussing it in an issue first before doing the work to make sure that it's likely to be accepted. We're also keen to improve test coverage and may not accept new code unless there are accompanying tests. -->
 
 ## Module Long Term Support Policy
 
@@ -165,7 +149,10 @@ This module adopts the [Module Long Term Support (LTS)](http://github.com/CloudN
 
 
 ### License
-The Node Application Metrics Dashboard is licensed using an Apache v2.0 License.
+
+This software are forked from [Application Metrics Dashboard project](https://github.com/RuntimeTools/appmetrics-dash).
+
+The Node Application Metrics Dashboard is licensed using an Apache v2.0 [License](LICENSE).
 
 
 [1]:https://developer.ibm.com/open/node-application-metrics/
